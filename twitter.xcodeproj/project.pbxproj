@@ -15,6 +15,9 @@
 		D986F82C19D80F5700A26AEF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D986F82A19D80F5700A26AEF /* LaunchScreen.xib */; };
 		D986F83819D80F5700A26AEF /* twitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986F83719D80F5700A26AEF /* twitterTests.swift */; };
 		D99691FC19D8139F00BD1BCC /* TwitterClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99691FB19D8139F00BD1BCC /* TwitterClient.swift */; };
+		D996920119D8969100BD1BCC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D996920019D8969100BD1BCC /* User.swift */; };
+		D996920319D896A100BD1BCC /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D996920219D896A100BD1BCC /* Tweet.swift */; };
+		D996920519D8C99900BD1BCC /* TweetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D996920419D8C99900BD1BCC /* TweetsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,9 @@
 		D986F83619D80F5700A26AEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D986F83719D80F5700A26AEF /* twitterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = twitterTests.swift; sourceTree = "<group>"; };
 		D99691FB19D8139F00BD1BCC /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
+		D996920019D8969100BD1BCC /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D996920219D896A100BD1BCC /* Tweet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
+		D996920419D8C99900BD1BCC /* TweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetsViewController.swift; sourceTree = "<group>"; };
 		F9504E8B2C64487AA9A5DF62 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,8 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				D986153F19D8111D00E464D4 /* API */,
+				D99691FF19D894DF00BD1BCC /* Models */,
+				D99691FE19D894CC00BD1BCC /* Views */,
+				D99691FD19D894AB00BD1BCC /* ViewControllers */,
 				D986F82119D80F5700A26AEF /* AppDelegate.swift */,
-				D986F82319D80F5700A26AEF /* ViewController.swift */,
 				D986F82519D80F5700A26AEF /* Main.storyboard */,
 				D986F82819D80F5700A26AEF /* Images.xcassets */,
 				D986F82A19D80F5700A26AEF /* LaunchScreen.xib */,
@@ -137,6 +145,31 @@
 				D986F83619D80F5700A26AEF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D99691FD19D894AB00BD1BCC /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D986F82319D80F5700A26AEF /* ViewController.swift */,
+				D996920419D8C99900BD1BCC /* TweetsViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		D99691FE19D894CC00BD1BCC /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D99691FF19D894DF00BD1BCC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D996920019D8969100BD1BCC /* User.swift */,
+				D996920219D896A100BD1BCC /* Tweet.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +307,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D996920119D8969100BD1BCC /* User.swift in Sources */,
+				D996920319D896A100BD1BCC /* Tweet.swift in Sources */,
+				D996920519D8C99900BD1BCC /* TweetsViewController.swift in Sources */,
 				D986F82419D80F5700A26AEF /* ViewController.swift in Sources */,
 				D99691FC19D8139F00BD1BCC /* TwitterClient.swift in Sources */,
 				D986F82219D80F5700A26AEF /* AppDelegate.swift in Sources */,

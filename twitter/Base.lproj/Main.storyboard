@@ -36,10 +36,50 @@
                             <constraint firstItem="el0-go-mQw" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="100" id="nlU-Gf-JIx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <segue destination="uQm-I9-tHf" kind="presentation" identifier="loginSegue" id="N01-oM-i1O"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="599" y="519"/>
+            <point key="canvasLocation" x="465" y="523"/>
+        </scene>
+        <!--Tweets View Controller-->
+        <scene sceneID="SP2-PT-IPE">
+            <objects>
+                <viewController storyboardIdentifier="TweetsViewController" id="uQm-I9-tHf" customClass="TweetsViewController" customModule="twitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IMP-1W-MER"/>
+                        <viewControllerLayoutGuide type="bottom" id="b3R-Ys-fMI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PwZ-Ww-wqt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YVx-Ra-vJZ">
+                                <rect key="frame" x="100" y="120" width="400" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="wGy-Qw-KYX"/>
+                                </constraints>
+                                <state key="normal" title="Logout">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onLogout:" destination="uQm-I9-tHf" eventType="touchUpInside" id="fqA-EC-KNv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="YVx-Ra-vJZ" firstAttribute="top" secondItem="IMP-1W-MER" secondAttribute="bottom" constant="100" id="1iG-qg-Hkq"/>
+                            <constraint firstItem="YVx-Ra-vJZ" firstAttribute="leading" secondItem="PwZ-Ww-wqt" secondAttribute="leading" constant="100" id="Ss5-BA-2RH"/>
+                            <constraint firstAttribute="trailing" secondItem="YVx-Ra-vJZ" secondAttribute="trailing" constant="100" id="aDR-Lk-ENa"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WAm-CC-PT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1135" y="523"/>
         </scene>
     </scenes>
 </document>

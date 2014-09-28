@@ -24,6 +24,20 @@ class ViewController: UIViewController {
 
     @IBAction func onLogin(sender: AnyObject) {
         
+        TwitterClient.sharedInstance.loginWithCompletion() {
+            
+            (user: User?, error: NSError?) in
+            
+            if user != nil {
+                // prepare for seque
+                self.performSegueWithIdentifier("loginSegue", sender: self)
+            } else {
+                // handle login error
+            }
+        }
+        
+        // NAJ: Not in use, moved to Client to allow loginWithCompletion() call
+        /*
         TwitterClient.sharedInstance.requestSerializer.removeAccessToken()
         TwitterClient.sharedInstance.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "twitterswiftclient://oauth"), scope: nil, success: { (requestToken: BDBOAuthToken!) -> Void in
             println("Got the request token")
@@ -34,7 +48,7 @@ class ViewController: UIViewController {
             
         }) { (error: NSError!) -> Void in
             println("Failed to get request token")
-        }
+        }*/
     }
 }
 
