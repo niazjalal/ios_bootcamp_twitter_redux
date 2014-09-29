@@ -8,11 +8,15 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController {
+class TweetsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBOutlet weak var SignOutButton: UIBarButtonItem!
     @IBOutlet weak var NewTweetButton: UIBarButtonItem!
     @IBOutlet weak var TweetsHomeLabel: UINavigationItem!
+    
+    var tweets: [Tweet]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +27,18 @@ class TweetsViewController: UIViewController {
         //SignOutButton.tintColor = UIColor.whiteColor()
         //NewTweetButton.tintColor = UIColor.whiteColor()
         
+        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
+            if tweets != nil {
+                self.tweets = tweets
+            }
+            
+            self.tableView.reloadData()
+        }
+        
         // Do any additional setup after loading the view.
+    
+        tableView.delegate = self
+        tableView.dataSource = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +46,24 @@ class TweetsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+     
+        println("ROWS: \(self.tweets?.count)")
+        return self.tweets?.count ?? 0
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        println("I'm at row: \(indexPath.row)")
+        
+        var cell = tableView.dequeueReusableCellWithIdentifier("TweetCell") as? TweetCell
+        
+        var tweet = self.tweets![indexPath.row] as Tweet
+        
+        cell?.tweet = tweet
+        
+        return cell!
+    }
 
     @IBAction func onLogout(sender: AnyObject) {
         

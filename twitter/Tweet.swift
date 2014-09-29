@@ -12,6 +12,8 @@ class Tweet: NSObject {
  
     var user: User?
     var text: String?
+    var favoriteCount: String?
+    var retweetCount: String?
     var createdAtString: String?
     var createdAt: NSDate?
     
@@ -19,6 +21,8 @@ class Tweet: NSObject {
         
         user = User(dictionary: dictionary["user"] as NSDictionary)
         text = dictionary["text"] as? String
+        favoriteCount = dictionary["favorite_count"] as? String
+        retweetCount = dictionary["retweet_count"] as? String
         createdAtString = dictionary["created_at"] as? String
         
         var formatter = NSDateFormatter()

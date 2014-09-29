@@ -25,9 +25,21 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         return Static.instance
     }
     
-    /*func homeTimelineWithParams(params: completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
+    func homeTimelineWithParams(params: NSDictionary?, completion: (tweets: [Tweet]?, error: NSError?) -> ()) {
         
-    }*/
+        self.GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
+            
+            //println("home timeline: \(response)")
+            var tweets = Tweet.tweetsWithArray(response as [NSDictionary])
+            
+            completion(tweets: tweets, error: nil)
+        }, failure: { (operation: AFHTTPRequestOperation!, error:NSError!) -> Void in
+                
+            println("Error getting current user home timeline")
+            
+            completion(tweets: nil, error: error)
+        })
+    }
     
     func loginWithCompletion(completion: (user: User?, error: NSError?) -> ()) {
         
@@ -64,7 +76,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
                 //println("user: \(response)")
                 var user = User(dictionary: response as NSDictionary)
                 User.currentUser = user
-                println("user: \(user.name)")
+                //println("user: \(user.name)")
                 
                 self.loginCompletion?(user: user, error: nil)
             }, failure: { (operation: AFHTTPRequestOperation!, error:NSError!) -> Void in
@@ -76,12 +88,12 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             
             TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 
-                //println("home timeline: \(response)")
+                println("home timeline: \(response)")
                 var tweets = Tweet.tweetsWithArray(response as [NSDictionary])
                 
                 for tweet in tweets {
                     
-                    println("text: \(tweet.text) created: \(tweet.createdAt)")
+                    //println("text: \(tweet.text) created: \(tweet.createdAt)")
                 }
             }, failure: { (operation: AFHTTPRequestOperation!, error:NSError!) -> Void in
                     
