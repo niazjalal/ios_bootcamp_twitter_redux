@@ -10,9 +10,19 @@ import UIKit
 
 class TweetsViewController: UIViewController {
 
+    @IBOutlet weak var SignOutButton: UIBarButtonItem!
+    @IBOutlet weak var NewTweetButton: UIBarButtonItem!
+    @IBOutlet weak var TweetsHomeLabel: UINavigationItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        var color: UIColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
+        
+        self.navigationController?.navigationBar.barTintColor = color
+        //SignOutButton.tintColor = UIColor.whiteColor()
+        //NewTweetButton.tintColor = UIColor.whiteColor()
+        
         // Do any additional setup after loading the view.
     }
 
