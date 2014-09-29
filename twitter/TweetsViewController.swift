@@ -37,6 +37,11 @@ class TweetsViewController: UIViewController {
         User.currentUser?.logout()
     }
     
+    @IBAction func onNewTweet(sender: AnyObject) {
+        
+        self.performSegueWithIdentifier("newTweetSegue", sender: self)
+    }
+    
     /*
     // MARK: - Navigation
 
