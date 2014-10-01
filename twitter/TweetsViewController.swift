@@ -21,11 +21,16 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        var refresh: UIRefreshControl = UIRefreshControl()
         var color: UIColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
+        var textColor = [NSForegroundColorAttributeName: color]
         
+        refresh.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: textColor)
+        refresh.addTarget(self, action: "onRefresh", forControlEvents: UIControlEvents.ValueChanged)
+        refresh.tintColor = color
+        tableView.addSubview(refresh)
+      
         self.navigationController?.navigationBar.barTintColor = color
-        //SignOutButton.tintColor = UIColor.whiteColor()
-        //NewTweetButton.tintColor = UIColor.whiteColor()
         
         TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
             if tweets != nil {
@@ -73,6 +78,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBAction func onNewTweet(sender: AnyObject) {
         
         self.performSegueWithIdentifier("newTweetSegue", sender: self)
+    }
+    
+    func onRefresh(sender: AnyObject) {
+        
+        var refresh = sender as UIRefreshControl
+        refresh.endRefreshing()
+        tableView.reloadData()
     }
     
     /*

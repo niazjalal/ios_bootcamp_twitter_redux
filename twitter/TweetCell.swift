@@ -15,6 +15,9 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var tweetLabel: UILabel!
     @IBOutlet weak var screennameLabel: UILabel!
     @IBOutlet weak var createdLabel: UILabel!
+    @IBOutlet weak var replyImageButton: UIButton!
+    @IBOutlet weak var retweetImageButton: UIButton!
+    @IBOutlet weak var favoriteImageButton: UIButton!
     
     var tweet: Tweet! {
         
@@ -45,5 +48,12 @@ class TweetCell: UITableViewCell {
         self.screennameLabel.text = "@\(tweet.user?.screenname as String!)"
         self.createdLabel.text = tweet.createdAtString
         self.tweetLabel.text = tweet.text
+        self.replyImageButton.titleLabel?.text = ""
+        self.replyImageButton.setImage(UIImage(named: "reply.png"), forState: UIControlState.Normal)
+        self.retweetImageButton.titleLabel?.text = ""
+        self.retweetImageButton.setImage(UIImage(named: "retweet.png"), forState: UIControlState.Normal)
+        self.favoriteImageButton.titleLabel?.text = ""
+        self.favoriteImageButton.setImage(UIImage(named: "favorite.png"), forState: UIControlState.Normal)
+        self.favoriteImageButton.setImage(UIImage(named: "favorited.png"), forState: UIControlState.Highlighted)
     }
 }

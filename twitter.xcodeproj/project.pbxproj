@@ -10,6 +10,10 @@
 		8DF4F11C289049A7B575EDB3 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 187D96231EEF4E4B8E43EB59 /* libPods.a */; };
 		D908BBEB19D9409D00851AFE /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908BBEA19D9409D00851AFE /* ComposeViewController.swift */; };
 		D908BBED19D9466B00851AFE /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908BBEC19D9466B00851AFE /* TweetViewController.swift */; };
+		D9311A4719DBCE520028CFDE /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = D9311A4319DBCE520028CFDE /* favorite.png */; };
+		D9311A4819DBCE520028CFDE /* favorited.png in Resources */ = {isa = PBXBuildFile; fileRef = D9311A4419DBCE520028CFDE /* favorited.png */; };
+		D9311A4919DBCE520028CFDE /* reply.png in Resources */ = {isa = PBXBuildFile; fileRef = D9311A4519DBCE520028CFDE /* reply.png */; };
+		D9311A4A19DBCE520028CFDE /* retweet.png in Resources */ = {isa = PBXBuildFile; fileRef = D9311A4619DBCE520028CFDE /* retweet.png */; };
 		D986F82219D80F5700A26AEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986F82119D80F5700A26AEF /* AppDelegate.swift */; };
 		D986F82419D80F5700A26AEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D986F82319D80F5700A26AEF /* ViewController.swift */; };
 		D986F82719D80F5700A26AEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D986F82519D80F5700A26AEF /* Main.storyboard */; };
@@ -37,6 +41,10 @@
 		187D96231EEF4E4B8E43EB59 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D908BBEA19D9409D00851AFE /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		D908BBEC19D9466B00851AFE /* TweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
+		D9311A4319DBCE520028CFDE /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
+		D9311A4419DBCE520028CFDE /* favorited.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorited.png; sourceTree = "<group>"; };
+		D9311A4519DBCE520028CFDE /* reply.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reply.png; sourceTree = "<group>"; };
+		D9311A4619DBCE520028CFDE /* retweet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = retweet.png; sourceTree = "<group>"; };
 		D986153C19D810B800E464D4 /* twitter-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "twitter-Bridging-Header.h"; sourceTree = "<group>"; };
 		D986F81C19D80F5700A26AEF /* twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D986F82019D80F5700A26AEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -131,6 +139,10 @@
 		D986F81F19D80F5700A26AEF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D9311A4319DBCE520028CFDE /* favorite.png */,
+				D9311A4419DBCE520028CFDE /* favorited.png */,
+				D9311A4519DBCE520028CFDE /* reply.png */,
+				D9311A4619DBCE520028CFDE /* retweet.png */,
 				D986F82019D80F5700A26AEF /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -265,7 +277,11 @@
 			files = (
 				D986F82719D80F5700A26AEF /* Main.storyboard in Resources */,
 				D986F82C19D80F5700A26AEF /* LaunchScreen.xib in Resources */,
+				D9311A4819DBCE520028CFDE /* favorited.png in Resources */,
 				D986F82919D80F5700A26AEF /* Images.xcassets in Resources */,
+				D9311A4A19DBCE520028CFDE /* retweet.png in Resources */,
+				D9311A4919DBCE520028CFDE /* reply.png in Resources */,
+				D9311A4719DBCE520028CFDE /* favorite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

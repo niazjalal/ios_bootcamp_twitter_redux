@@ -80,8 +80,8 @@
                                                         <constraint firstAttribute="height" constant="50" id="gNj-ZS-fqN"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtc-Vm-fBC">
-                                                    <rect key="frame" x="70" y="10" width="26" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtc-Vm-fBC">
+                                                    <rect key="frame" x="70" y="11" width="26" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="45f-nz-HXg"/>
                                                     </constraints>
@@ -90,7 +90,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="text" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTq-cP-YCJ">
-                                                    <rect key="frame" x="70" y="35" width="100" height="20"/>
+                                                    <rect key="frame" x="70" y="36" width="100" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="250" id="e4e-ak-XZ7"/>
                                                     </constraints>
@@ -98,8 +98,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="screenname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEn-SS-El8">
-                                                    <rect key="frame" x="101" y="10" width="57" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="screenname" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HEn-SS-El8">
+                                                    <rect key="frame" x="101" y="11" width="57" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="eTT-gA-kx1"/>
                                                     </constraints>
@@ -107,8 +107,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="created" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfT-zM-GLW">
-                                                    <rect key="frame" x="554" y="10" width="36" height="20"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="created" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TfT-zM-GLW">
+                                                    <rect key="frame" x="554" y="11" width="36" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="4bb-wu-Uch"/>
                                                     </constraints>
@@ -117,7 +117,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qVl-1i-orR">
-                                                    <rect key="frame" x="68" y="60" width="20" height="20"/>
+                                                    <rect key="frame" x="68" y="61" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="Jyl-jL-9ha"/>
                                                         <constraint firstAttribute="width" constant="20" id="vf3-2g-4QX"/>
@@ -128,7 +128,7 @@
                                                     </state>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0EQ-5s-QpE">
-                                                    <rect key="frame" x="96" y="60" width="20" height="20"/>
+                                                    <rect key="frame" x="96" y="61" width="20" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="20" id="gFL-ea-Zzz"/>
                                                         <constraint firstAttribute="height" constant="20" id="xY5-q2-lH4"/>
@@ -171,8 +171,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="createdLabel" destination="TfT-zM-GLW" id="dyA-vY-KcG"/>
+                                            <outlet property="favoriteImageButton" destination="VYc-9a-jW5" id="g8P-vq-lVV"/>
                                             <outlet property="nameLabel" destination="xtc-Vm-fBC" id="11U-A7-Khe"/>
                                             <outlet property="profilePosterView" destination="SYs-Nc-U5a" id="gxn-oF-vaQ"/>
+                                            <outlet property="replyImageButton" destination="qVl-1i-orR" id="x0x-4b-kch"/>
+                                            <outlet property="retweetImageButton" destination="0EQ-5s-QpE" id="gOI-Ay-IJx"/>
                                             <outlet property="screennameLabel" destination="HEn-SS-El8" id="MEF-fh-MJ8"/>
                                             <outlet property="tweetLabel" destination="RTq-cP-YCJ" id="2Ys-Pz-vA2"/>
                                         </connections>
@@ -226,7 +229,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAm-CC-PT8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1811" y="521"/>
+            <point key="canvasLocation" x="1811" y="520"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="2N6-EE-D9e">
