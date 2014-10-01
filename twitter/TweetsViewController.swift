@@ -87,6 +87,20 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.reloadData()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if segue.identifier == "tweetViewSegue" {
+            
+            var tweetViewController = segue.destinationViewController as TweetViewController
+            
+            let tweetPath = self.tableView.indexPathForSelectedRow() as NSIndexPath!
+            let row = tweetPath.row
+            
+            var tweet = self.tweets![row]
+            
+            tweetViewController.tweet = tweet
+        }
+    }
     /*
     // MARK: - Navigation
 
