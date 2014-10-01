@@ -18,13 +18,17 @@ class ComposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        var color: UIColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
+        
         // Do any additional setup after loading the view.
         var user = User.currentUser
         
         self.userImageView.setImageWithURL(user?.profileImageURL)
         self.nameLabel.text = user?.name
-        self.screennameLabel.text = user?.screenname
-        
+        self.screennameLabel.text = "@\(user?.screenname as String!)"
+        self.screennameLabel.textColor = color
+        self.tweetMsgTextView.textColor = UIColor.blueColor()
+        self.tweetMsgTextView.text = ""
     }
 
     override func didReceiveMemoryWarning() {

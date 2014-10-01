@@ -263,13 +263,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Message" translatesAutoresizingMaskIntoConstraints="NO" id="bBD-6l-dRp">
-                                <rect key="frame" x="10" y="144" width="550" height="150"/>
+                                <rect key="frame" x="10" y="144" width="580" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="7gT-tN-auD"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -279,7 +279,7 @@
                             <constraint firstItem="bBD-6l-dRp" firstAttribute="top" secondItem="zbp-va-lN9" secondAttribute="bottom" constant="20" id="9so-Fc-y88"/>
                             <constraint firstItem="JlU-eR-bfw" firstAttribute="leading" secondItem="zbp-va-lN9" secondAttribute="trailing" constant="10" id="BvD-Yi-Kl1"/>
                             <constraint firstItem="JlU-eR-bfw" firstAttribute="top" secondItem="Yuy-fR-IAq" secondAttribute="bottom" constant="5" id="GCp-GR-GJg"/>
-                            <constraint firstAttribute="trailing" secondItem="bBD-6l-dRp" secondAttribute="trailing" constant="40" id="RqI-gQ-VdU"/>
+                            <constraint firstAttribute="trailing" secondItem="bBD-6l-dRp" secondAttribute="trailing" constant="10" id="RqI-gQ-VdU"/>
                             <constraint firstItem="Yuy-fR-IAq" firstAttribute="top" secondItem="Ko8-99-HMb" secondAttribute="bottom" constant="10" id="nWO-Fb-dFi"/>
                             <constraint firstItem="bBD-6l-dRp" firstAttribute="leading" secondItem="1gy-37-2Be" secondAttribute="leading" constant="10" id="onI-UF-Bz1"/>
                             <constraint firstItem="zbp-va-lN9" firstAttribute="top" secondItem="Ko8-99-HMb" secondAttribute="bottom" constant="10" id="yxz-i1-R5B"/>
