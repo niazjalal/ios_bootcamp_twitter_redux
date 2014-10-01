@@ -20,6 +20,7 @@ class User: NSObject {
     var screenname: String?
     var profileImageURL: NSURL?
     var tagline: String?
+    var id: Int?
     
     init(dictionary: NSDictionary) {
         
@@ -31,6 +32,7 @@ class User: NSObject {
         profileImageURL = NSURL(string: dictionary["profile_image_url"] as String)
         println("IMAGE URL FROM USER: \(profileImageURL)")
         tagline = dictionary["description"] as? String
+        id = dictionary["id"] as? Int
     }
     
     func logout() {

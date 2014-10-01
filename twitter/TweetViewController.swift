@@ -56,13 +56,14 @@ class TweetViewController: UIViewController {
 
     }
     
-    /*override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "replyTweetSegue" {
             var navController = segue.destinationViewController as UINavigationController
             var tweetReplyController = navController.viewControllers[0] as ReplyViewController
-            tweetReplyController.t = tweet
-    }*/
+            tweetReplyController.tweet = tweet
+        }
+    }
 
     /*
     // MARK: - Navigation

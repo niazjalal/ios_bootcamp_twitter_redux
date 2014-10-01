@@ -9,7 +9,14 @@
 import UIKit
 
 class ReplyViewController: UIViewController {
-
+    
+    @IBOutlet weak var profilePosterView: UIImageView!
+    @IBOutlet weak var profileNameLabel: UILabel!
+    @IBOutlet weak var profileScreennameLabel: UILabel!
+    @IBOutlet weak var replyTweetTextView: UITextView!
+    
+    var tweet: Tweet!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,6 +24,14 @@ class ReplyViewController: UIViewController {
         
         self.navigationController?.navigationBar.barTintColor = color
         
+        var user = User.currentUser
+
+        self.profilePosterView.setImageWithURL(user?.profileImageURL)
+        self.profileNameLabel.text = user?.name
+        self.profileScreennameLabel.text = user?.screenname
+        self.profileScreennameLabel.textColor = color
+        self.replyTweetTextView.text = "@\(tweet.user?.screenname as String!) "
+
         // Do any additional setup after loading the view.
     }
 
@@ -30,18 +45,18 @@ class ReplyViewController: UIViewController {
         
         println("Canceling retweet tweet...")
         
-        dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     
     @IBAction func onReplyTweetButton(sender: AnyObject) {
         
-        //var message = self.tweetMsgTextView.text
+        var message = self.replyTweetTextView.text
         
-        //TwitterClient.sharedInstance.tweetWithCompletion(message) { (tweet, error) -> () in
+        TwitterClient.sharedInstance.tweetReplyWithCompletion(message, replyAddress: tweet.user!) { (tweet, error) -> () in
             
-        //    self.dismissViewControllerAnimated(true, completion: nil)
-        //}
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
         
         dismissViewControllerAnimated(true, completion: nil)
     }

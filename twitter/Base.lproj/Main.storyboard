@@ -533,6 +533,12 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="profileNameLabel" destination="aWn-GV-cOn" id="AJj-0p-YXy"/>
+                        <outlet property="profilePosterView" destination="gHT-hQ-2MU" id="U7t-D3-r9E"/>
+                        <outlet property="profileScreennameLabel" destination="ZHd-Ie-lGy" id="lZa-Gs-65A"/>
+                        <outlet property="replyTweetTextView" destination="Tk4-JO-gej" id="fe3-Px-d0Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZl-mk-zcF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
