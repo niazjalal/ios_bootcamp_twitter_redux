@@ -1,22 +1,22 @@
 //
-//  TweetViewController.swift
+//  ReplyViewController.swift
 //  twitter
 //
-//  Created by Niaz Jalal on 9/29/14.
+//  Created by Niaz Jalal on 10/1/14.
 //  Copyright (c) 2014 Niaz Jalal. All rights reserved.
 //
 
 import UIKit
 
-class TweetViewController: UIViewController {
-    
+class ReplyViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         var color: UIColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
         
         self.navigationController?.navigationBar.barTintColor = color
-
+        
         // Do any additional setup after loading the view.
     }
 
@@ -25,12 +25,27 @@ class TweetViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func onReplyButton(sender: AnyObject) {
+
+    @IBAction func onReplyTweetCancelButton(sender: AnyObject) {
         
-       self.performSegueWithIdentifier("replyTweetSegue", sender: self)
-
+        println("Canceling retweet tweet...")
+        
+        dismissViewControllerAnimated(true, completion: nil)
     }
-
+    
+    
+    @IBAction func onReplyTweetButton(sender: AnyObject) {
+        
+        //var message = self.tweetMsgTextView.text
+        
+        //TwitterClient.sharedInstance.tweetWithCompletion(message) { (tweet, error) -> () in
+            
+        //    self.dismissViewControllerAnimated(true, completion: nil)
+        //}
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -40,4 +55,5 @@ class TweetViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 }
