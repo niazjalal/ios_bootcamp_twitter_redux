@@ -13,6 +13,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var profilePosterView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var tweetLabel: UILabel!
+    @IBOutlet weak var screennameLabel: UILabel!
+    @IBOutlet weak var createdLabel: UILabel!
     
     var tweet: Tweet! {
         
@@ -38,9 +40,10 @@ class TweetCell: UITableViewCell {
 
     func loadValues(tweet: Tweet) {
         
-        self.profilePosterView.setImageWithURL(tweet.user?.profileImageURL as? NSURL)
-        println("IMAGE: \(self.profilePosterView.setImageWithURL(tweet.user?.profileImageURL as? NSURL))")
+        self.profilePosterView.setImageWithURL(tweet.user?.profileImageURL)
         self.nameLabel.text = tweet.user?.name
+        self.screennameLabel.text = "@\(tweet.user?.screenname as String!)"
+        self.createdLabel.text = tweet.createdAtString
         self.tweetLabel.text = tweet.text
     }
 }

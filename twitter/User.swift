@@ -18,7 +18,7 @@ class User: NSObject {
     var dictionary: NSDictionary
     var name: String?
     var screenname: String?
-    var profileImageURL: String?
+    var profileImageURL: NSURL?
     var tagline: String?
     
     init(dictionary: NSDictionary) {
@@ -27,7 +27,9 @@ class User: NSObject {
         
         name = dictionary["name"] as? String
         screenname = dictionary["screen_name"] as? String
-        profileImageURL = dictionary["profile_image_url"] as? String
+        println("SCREEN NAME: \(screenname)")
+        profileImageURL = NSURL(string: dictionary["profile_image_url"] as String)
+        println("IMAGE URL FROM USER: \(profileImageURL)")
         tagline = dictionary["description"] as? String
     }
     
