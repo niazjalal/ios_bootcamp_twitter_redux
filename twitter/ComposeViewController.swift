@@ -10,10 +10,21 @@ import UIKit
 
 class ComposeViewController: UIViewController {
 
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var screennameLabel: UILabel!
+    @IBOutlet weak var tweetMsgTextView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        var user = User.currentUser
+        
+        self.userImageView.setImageWithURL(user?.profileImageURL)
+        self.nameLabel.text = user?.name
+        self.screennameLabel.text = user?.screenname
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -32,8 +43,12 @@ class ComposeViewController: UIViewController {
         
         println("Tweeting new composed tweet...")
         
-        // NAJ: TODO implement
-        dismissViewControllerAnimated(true, completion: nil)
+        var message = self.tweetMsgTextView.text
+        
+        TwitterClient.sharedInstance.tweetWithCompletion(message) { (tweet, error) -> () in
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
     }
     
     /*
