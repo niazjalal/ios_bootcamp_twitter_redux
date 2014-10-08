@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetCell: UITableViewCell {
+class TweetCell: UITableViewCell, UIGestureRecognizerDelegate {
 
     @IBOutlet weak var profilePosterView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -18,6 +18,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var replyImageButton: UIButton!
     @IBOutlet weak var retweetImageButton: UIButton!
     @IBOutlet weak var favoriteImageButton: UIButton!
+    
+    var segueCallback: ((tweet: Tweet) -> Void)?
     
     var tweet: Tweet! {
         
@@ -55,25 +57,17 @@ class TweetCell: UITableViewCell {
         self.favoriteImageButton.titleLabel?.text = ""
         self.favoriteImageButton.setImage(UIImage(named: "favorite.png"), forState: UIControlState.Normal)
         self.favoriteImageButton.setImage(UIImage(named: "favorited.png"), forState: UIControlState.Highlighted)
+        
+        var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector("onTapUserImage:"))
+        
+        tapGestureRecognizer.delegate = self
+        
+        profilePosterView.addGestureRecognizer(tapGestureRecognizer)
     }
     
-    /*
-    class func createdTime(createdAt: NSDate) -> String {
+    func onTapUserImage(sender: UITapGestureRecognizer) {
         
-        var timeSinceCreation = createdAt.timeIntervalSinceNow
-        var timeSinceCreationInt = Int(timeSinceCreation) * -1
-        var timeSinceCreationMins = timeSinceCreationInt/60 as Int
-            
-        if timeSinceCreationMins == 0 {
-            return "now"
-        } else if timeSinceCreationMins >= 1 && timeSinceCreationMins < 60 {
-            return "\(timeSinceCreationMins)m"
-        } else if timeSinceCreationMins < 1440 {
-            return "\(timeSinceCreationMins/60)h"
-        } else if timeSinceCreationMins >= 1440 {
-            return "\(timeSinceCreationMins/1440)d"
-        }
-        
-        return ""
-    }*/
+        println("onTapUserImage() called")
+        self.segueCallback!(tweet: self.tweet)
+    }
 }

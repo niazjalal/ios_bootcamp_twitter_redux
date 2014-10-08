@@ -49,7 +49,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
 
     func tweetReplyWithCompletion(tweetText: String, replyAddress: User, completion: (tweet: Tweet?, error: NSError?) -> ()) {
         
-        //var tweetParams: NSDictionary = ["status": tweetText, "in_reply_to_status_id": replyAddress.id]
+        //var tweetParams : NSDictionary = ["status": tweetText, "in_reply_to_status_id": replyAddress.id]
         
         //self.statusWithCompletion(tweetParams, completion)
     }

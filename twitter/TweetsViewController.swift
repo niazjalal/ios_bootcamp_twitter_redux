@@ -15,12 +15,15 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var SignOutButton: UIBarButtonItem!
     @IBOutlet weak var NewTweetButton: UIBarButtonItem!
     @IBOutlet weak var TweetsHomeLabel: UINavigationItem!
+
     
     var tweets: [Tweet]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        var tapGestureRecognizer = UITapGestureRecognizer(target: self, action: "onTapUserImage:")
+                
         var refresh: UIRefreshControl = UIRefreshControl()
         var color: UIColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
         var textColor = [NSForegroundColorAttributeName: color]
@@ -67,9 +70,24 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
         
         cell?.tweet = tweet
         
+        cell!.segueCallback = self.cellCallback
+        
         return cell!
     }
+    
+    func cellCallback(tweet: Tweet) -> Void {
+        
+        println("Calling segue")
+        self.performSegueWithIdentifier("loadProfileSegue", sender: self)
+        println("Returned from segue call")
+    }
 
+//    @IBAction func onTapUserImage(sender: UITapGestureRecognizer) {
+//        
+//        println("onTapUserImage() called")
+//        self.performSegueWithIdentifier("loadProfileSegue", sender: self)
+//    }
+    
     @IBAction func onLogout(sender: AnyObject) {
         
         User.currentUser?.logout()
@@ -99,6 +117,13 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             var tweet = self.tweets![row]
             
             tweetViewController.tweet = tweet
+        }
+        
+        if segue.identifier == "loadProfileSegue" {
+            
+            var profileViewController = segue.destinationViewController as ProfileViewController
+            
+            profileViewController.user = User.currentUser
         }
     }
     /*
