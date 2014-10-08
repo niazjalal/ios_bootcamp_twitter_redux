@@ -28,7 +28,7 @@ class ReplyViewController: UIViewController {
 
         self.profilePosterView.setImageWithURL(user?.profileImageURL)
         self.profileNameLabel.text = user?.name
-        self.profileScreennameLabel.text = user?.screenname
+        self.profileScreennameLabel.text = "@\(user?.screenname as String!)"
         self.profileScreennameLabel.textColor = color
         self.replyTweetTextView.text = "@\(tweet.user?.screenname as String!) "
 

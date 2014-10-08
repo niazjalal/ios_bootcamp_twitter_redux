@@ -23,15 +23,21 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        var color: UIColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
+        
         self.user = User.currentUser
         
         self.bannerPosterView.setImageWithURL(user?.bannerImageURL)
         self.thumbPosterView.setImageWithURL(user?.profileImageURL)
         self.profileNameLabel.text = user?.name
-        self.profileScreennameLabel.text = user?.screenname
-        self.tweetCountLabel.text = "\(user?.tweetCount)"
-        self.followingCountLabel.text = "\(user?.followingCount)"
-        self.followersLabelCount.text = "\(user?.followersCount)"
+        self.profileScreennameLabel.text = "@\(user?.screenname as String!)"
+        self.profileScreennameLabel.textColor = color
+        self.tweetCountLabel.text = "\(user.tweetCount!)"
+        println("\(tweetCountLabel.text)")
+        self.followingCountLabel.text = "\(user.followingCount!)"
+        println("\(followingCountLabel.text)")
+        self.followersLabelCount.text = "\(user.followersCount!)"
+        println("\(followersLabelCount.text)")
         
         // Do any additional setup after loading the view.
     }
