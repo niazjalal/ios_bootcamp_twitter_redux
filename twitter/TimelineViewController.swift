@@ -20,6 +20,8 @@ class TimelineViewController: UIViewController {
     
     @IBOutlet weak var mentionsButton: UIButton!
 
+    var user: User!
+    
     var timelineVC: UIViewController!
     var profileVC: UIViewController!
     var mentionsVC: UIViewController!
@@ -49,8 +51,11 @@ class TimelineViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
+        
+        self.user = User.currentUser
+        
         timelineVC = self.storyBoard.instantiateViewControllerWithIdentifier("TweetsViewController") as UIViewController
         profileVC = self.storyBoard.instantiateViewControllerWithIdentifier("ProfileViewController") as UIViewController
         mentionsVC = self.storyBoard.instantiateViewControllerWithIdentifier("ProfileViewController") as UIViewController
@@ -90,6 +95,10 @@ class TimelineViewController: UIViewController {
         }
     }
     
+    @IBAction func onSignOut(sender: AnyObject) {
+        
+        User.currentUser?.logout()
+    }
 
     /*
     // MARK: - Navigation
