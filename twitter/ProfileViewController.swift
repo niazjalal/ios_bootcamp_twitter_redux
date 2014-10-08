@@ -25,9 +25,10 @@ class ProfileViewController: UIViewController {
         
         var color: UIColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
         
-        self.user = User.currentUser
+        //self.user = User.currentUser
         
         self.bannerPosterView.setImageWithURL(user?.bannerImageURL)
+        println("\(user?.bannerImageURL)")
         self.thumbPosterView.setImageWithURL(user?.profileImageURL)
         self.profileNameLabel.text = user?.name
         self.profileScreennameLabel.text = "@\(user?.screenname as String!)"

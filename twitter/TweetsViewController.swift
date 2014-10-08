@@ -78,16 +78,10 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func cellCallback(tweet: Tweet) -> Void {
         
         println("Calling segue")
-        self.performSegueWithIdentifier("loadProfileSegue", sender: self)
+        self.performSegueWithIdentifier("loadProfileSegue", sender: tweet)
         println("Returned from segue call")
     }
 
-//    @IBAction func onTapUserImage(sender: UITapGestureRecognizer) {
-//        
-//        println("onTapUserImage() called")
-//        self.performSegueWithIdentifier("loadProfileSegue", sender: self)
-//    }
-    
     @IBAction func onLogout(sender: AnyObject) {
         
         User.currentUser?.logout()
@@ -117,13 +111,12 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             var tweet = self.tweets![row]
             
             tweetViewController.tweet = tweet
-        }
-        
-        if segue.identifier == "loadProfileSegue" {
+            
+        } else if segue.identifier == "loadProfileSegue" {
             
             var profileViewController = segue.destinationViewController as ProfileViewController
             
-            profileViewController.user = User.currentUser
+            profileViewController.user = (sender as Tweet).user
         }
     }
     /*
