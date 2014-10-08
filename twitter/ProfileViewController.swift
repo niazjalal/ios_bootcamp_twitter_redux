@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController {
         self.profileNameLabel.text = user?.name
         self.profileScreennameLabel.text = "@\(user?.screenname as String!)"
         self.profileScreennameLabel.textColor = color
-        self.tweetCountLabel.text = "\(user.tweetCount!)"
+        self.tweetCountLabel.text = "\(user.tweetCount?)"
         println("\(tweetCountLabel.text)")
         self.followingCountLabel.text = "\(user.followingCount!)"
         println("\(followingCountLabel.text)")
