@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // go to logged in screen
             println("Current user detected: \(User.currentUser?.name)")
             
-            var vc = storyboard.instantiateViewControllerWithIdentifier("TimelineNavigationController") as UIViewController
+            var vc = storyboard.instantiateViewControllerWithIdentifier("TimelineViewController") as UIViewController
             
             window?.rootViewController = vc
         }

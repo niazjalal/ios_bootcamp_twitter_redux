@@ -40,7 +40,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="bjU-qd-y0E" kind="presentation" identifier="loginSegue" id="sTD-KK-Erc"/>
+                        <segue destination="Rub-90-2g1" kind="presentation" identifier="loginSegue" id="lAw-hl-WKR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -484,6 +484,7 @@
                                             <constraint firstAttribute="width" constant="140" id="BwB-7h-9cE"/>
                                             <constraint firstAttribute="height" constant="40" id="QhX-lV-5Jj"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="Mentions">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -497,6 +498,7 @@
                                             <constraint firstAttribute="height" constant="40" id="3HY-Bs-v9w"/>
                                             <constraint firstAttribute="width" constant="140" id="uPM-7W-AC9"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <state key="normal" title="Timeline">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -522,6 +524,20 @@
                                         </state>
                                         <connections>
                                             <action selector="menuButtonPressed:" destination="Rub-90-2g1" eventType="touchUpInside" id="gbr-Gl-FHt"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VbC-a9-lpb">
+                                        <rect key="frame" x="10" y="269" width="140" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="3jN-xU-p0N"/>
+                                            <constraint firstAttribute="width" constant="140" id="aAD-vz-WFw"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <state key="normal" title="Sign Out">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onSignOut:" destination="Rub-90-2g1" eventType="touchUpInside" id="5dD-dY-R4T"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -569,13 +585,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="onSignOut:" destination="Rub-90-2g1" eventType="touchUpInside" id="pIs-mg-63l"/>
-                                </connections>
                             </button>
-                            <connections>
-                                <action selector="onSignOut:" destination="Rub-90-2g1" id="fyu-nK-JVD"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -596,7 +606,7 @@
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3951" y="1265"/>
+            <point key="canvasLocation" x="3157" y="1265"/>
         </scene>
         <!--Reply-->
         <scene sceneID="KoK-k1-Ryq">
@@ -854,24 +864,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4DT-qT-3WR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1135" y="1265"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="3Zh-ia-nUo">
-            <objects>
-                <navigationController storyboardIdentifier="TimelineNavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bjU-qd-y0E" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dk9-Uy-CpR">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Rub-90-2g1" kind="relationship" relationship="rootViewController" id="kbH-ag-bPq"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ITb-Qc-Jb7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3139" y="1265"/>
         </scene>
     </scenes>
 </document>
