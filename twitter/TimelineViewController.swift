@@ -14,12 +14,16 @@ class TimelineViewController: UIViewController {
     
     @IBOutlet weak var contentView: UIView!
     
-    @IBOutlet weak var profileButton: UIButton!
-    
     @IBOutlet weak var timelineButton: UIButton!
     
     @IBOutlet weak var mentionsButton: UIButton!
 
+    @IBOutlet weak var profilePosterView: UIImageView!
+    
+    @IBOutlet weak var profileNameButton: UIButton!
+    
+    @IBOutlet weak var profileScreennameLabel: UILabel!
+    
     var user: User!
     
     var timelineVC: UIViewController!
@@ -54,7 +58,15 @@ class TimelineViewController: UIViewController {
         
         super.viewDidLoad()
         
+        var color: UIColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
+        
         self.user = User.currentUser
+        println("USER: \(self.user)")
+
+        self.profileNameButton.setTitle("\(user.name!)", forState: UIControlState.Normal)
+        self.profileScreennameLabel.text = "@\(user.screenname!)"
+        self.profileScreennameLabel.textColor = color
+        self.profilePosterView.setImageWithURL(user.profileImageURL!)
         
         timelineVC = self.storyBoard.instantiateViewControllerWithIdentifier("TweetsViewController") as UIViewController
         profileVC = self.storyBoard.instantiateViewControllerWithIdentifier("ProfileViewController") as UIViewController
@@ -63,9 +75,11 @@ class TimelineViewController: UIViewController {
         self.timelineViewXConstraint.constant = 0
         
         self.activeViewController = timelineVC
-        
+
         // Do any additional setup after loading the view.
     }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -75,24 +89,38 @@ class TimelineViewController: UIViewController {
     @IBAction func pullMenu(sender: UISwipeGestureRecognizer) {
         
         if sender.state == .Ended {
-            self.timelineViewXConstraint.constant = -160
+            
+            UIView.animateWithDuration(0.35, animations: {
+                
+                self.timelineViewXConstraint.constant = -160
+                self.view.layoutIfNeeded()
+            })
         }
     }
 
     @IBAction func menuButtonPressed(sender: UIButton) {
-        
-        if sender == profileButton {
+
+        if sender == profileNameButton {
             println("profile pressed!")
             self.activeViewController = profileVC
+            println("USER:\(user.name)")
         } else if sender == timelineButton {
             println("timeline pressed!")
             self.activeViewController = timelineVC
+            println("USER:\(user.name)")
         } else if sender == mentionsButton {
             println("mentions pressed!")
             self.activeViewController = mentionsVC
+            println("USER:\(user.name)")
         } else {
             println("unknown button pressed!")
         }
+        
+        UIView.animateWithDuration(0.35, animations: {
+            
+            self.timelineViewXConstraint.constant = 0
+            self.view.layoutIfNeeded()
+        })
     }
     
     @IBAction func onSignOut(sender: AnyObject) {

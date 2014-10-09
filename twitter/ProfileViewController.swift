@@ -27,11 +27,15 @@ class ProfileViewController: UIViewController {
         
         //self.user = User.currentUser
         
-        self.bannerPosterView.setImageWithURL(user?.bannerImageURL)
-        println("\(user?.bannerImageURL)")
-        self.thumbPosterView.setImageWithURL(user?.profileImageURL)
-        self.profileNameLabel.text = user?.name
-        self.profileScreennameLabel.text = "@\(user?.screenname as String!)"
+        if user == nil {
+            user = User.currentUser
+        }
+        
+        self.bannerPosterView.setImageWithURL(user.bannerImageURL!)
+        println("\(user.bannerImageURL!)")
+        self.thumbPosterView.setImageWithURL(user.profileImageURL!)
+        self.profileNameLabel.text = "\(user.name!)"
+        self.profileScreennameLabel.text = "@\(user.screenname!)"
         self.profileScreennameLabel.textColor = color
         self.tweetCountLabel.text = "\(user.tweetCount!)"
         println("\(tweetCountLabel.text)")
@@ -52,7 +56,7 @@ class ProfileViewController: UIViewController {
     /*
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // In a storyboard-based application, you will often want to do a little pSome	UIImageView	0x000000010b1199d8	0x000000010b1199d8reparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
