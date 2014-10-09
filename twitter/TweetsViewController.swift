@@ -19,6 +19,8 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     var isMentions: Bool = false
     
     var tweets: [Tweet]?
+
+    var storyBoard = UIStoryboard(name: "Main", bundle: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +38,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
       
         self.navigationController?.navigationBar.barTintColor = color
         
-        if self.isMentions == true {
+        if self.isMentions == false {
 
             TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
                 if tweets != nil {
@@ -95,7 +97,15 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     func cellCallback(tweet: Tweet) -> Void {
         
-        self.performSegueWithIdentifier("loadProfileSegue", sender: tweet)
+//        self.performSegueWithIdentifier("loadProfileSegue", sender: tweet)
+    
+        var vc = self.storyBoard.instantiateViewControllerWithIdentifier("TimelineViewController") as TimelineViewController
+        
+        vc.profileUser = tweet.user
+        
+        var window = UIApplication.sharedApplication().keyWindow
+        
+        window.rootViewController = vc
     }
 
     @IBAction func onLogout(sender: AnyObject) {

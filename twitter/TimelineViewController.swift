@@ -18,11 +18,11 @@ class TimelineViewController: UIViewController {
     @IBOutlet weak var profileNameButton: UIButton!
     @IBOutlet weak var profileScreennameLabel: UILabel!
     
-    var user: User!
+    var profileUser: User!
     
-    var timelineVC: TweetsViewController!
+    var timelineVC: UINavigationController!
     var profileVC: ProfileViewController!
-    var mentionsVC: TweetsViewController!
+    var mentionsVC: UINavigationController!
     
     var storyBoard = UIStoryboard(name: "Main", bundle: nil)
     
@@ -60,31 +60,45 @@ class TimelineViewController: UIViewController {
         
         var color: UIColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
         
-        self.user = User.currentUser
+         var user = User.currentUser
 //        println("USER: \(self.user)")
 
-        self.profileNameButton.setTitle("\(user.name!)", forState: UIControlState.Normal)
+        self.profileNameButton.setTitle(user!.name, forState: UIControlState.Normal)
         
-        self.profileScreennameLabel.text = "@\(user.screenname!)"
+        self.profileScreennameLabel.text = "@" + user!.screenname! as String
         
         self.profileScreennameLabel.textColor = color
         
-        self.profilePosterView.setImageWithURL(user.profileImageURL!)
+        self.profilePosterView.setImageWithURL(user!.profileImageURL)
         
-        timelineVC = self.storyBoard.instantiateViewControllerWithIdentifier("TweetsViewController") as TweetsViewController
+        self.timelineVC = self.storyBoard.instantiateViewControllerWithIdentifier("TweetsNavigationController") as UINavigationController
         
-        timelineVC.isMentions = false
+        var tVC = self.timelineVC.viewControllers[0] as TweetsViewController
+        
+        tVC.isMentions = false
         
         profileVC = self.storyBoard.instantiateViewControllerWithIdentifier("ProfileViewController") as ProfileViewController
         
-        mentionsVC = self.storyBoard.instantiateViewControllerWithIdentifier("TweetsViewController") as TweetsViewController
+        self.mentionsVC = self.storyBoard.instantiateViewControllerWithIdentifier("TweetsNavigationController") as UINavigationController
         
-        timelineVC.isMentions = true
+        var mVC = self.mentionsVC.viewControllers[0] as TweetsViewController
+        
+        mVC.isMentions = true
         
         self.timelineViewXConstraint.constant = 0
         
         self.activeViewController = timelineVC
 
+        if self.profileUser != nil {
+            
+            self.profileVC.user = self.profileUser
+            
+            self.activeViewController = self.profileVC
+        } else {
+            
+            self.activeViewController = timelineVC
+        }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -113,6 +127,8 @@ class TimelineViewController: UIViewController {
         if sender == profileNameButton {
             
             println("profile pressed!")
+            
+            self.profileUser = nil
             
             self.activeViewController = profileVC
         } else if sender == timelineButton {
