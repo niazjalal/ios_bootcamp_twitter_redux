@@ -2,14 +2,14 @@
 
 Swift application which revamps our Twitter Application with a new hamburger menu, profile view, and mentions view using the Twitter API.
 
-Time spent: 12 hours spent in total
+Time spent: 20 hours spent in total
 
 ### Completed user stories:
 
 #### Hamburger Menu
 * [x] Required: Dragging anywhere in the view should reveal the menu
-* [x] Required: (PARTIAL) The menu should include links to profile, the home timeline, and the mentions view
-* [x] Required: (PARTIAL) The menu can look similar to the linked menu or your own UI
+* [x] Required: The menu should include links to profile, the home timeline, and the mentions view
+* [x] Required: he menu can look similar to the linked menu or your own UI
 
 #### Profile Page
 * [x] Required: Contains the user header view
@@ -29,7 +29,7 @@ Time spent: 12 hours spent in total
 
 ### Notes
 
-Hamburger menu is not complete and has some bugs that need resolving.
+All required stories completed.
 
 ### Cocoapods used
 
