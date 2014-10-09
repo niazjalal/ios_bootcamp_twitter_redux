@@ -26,9 +26,9 @@ class TimelineViewController: UIViewController {
     
     var user: User!
     
-    var timelineVC: UIViewController!
-    var profileVC: UIViewController!
-    var mentionsVC: UIViewController!
+    var timelineVC: TweetsViewController!
+    var profileVC: ProfileViewController!
+    var mentionsVC: TweetsViewController!
     
     var storyBoard = UIStoryboard(name: "Main", bundle: nil)
     
@@ -68,9 +68,11 @@ class TimelineViewController: UIViewController {
         self.profileScreennameLabel.textColor = color
         self.profilePosterView.setImageWithURL(user.profileImageURL!)
         
-        timelineVC = self.storyBoard.instantiateViewControllerWithIdentifier("TweetsViewController") as UIViewController
-        profileVC = self.storyBoard.instantiateViewControllerWithIdentifier("ProfileViewController") as UIViewController
-        mentionsVC = self.storyBoard.instantiateViewControllerWithIdentifier("ProfileViewController") as UIViewController
+        timelineVC = self.storyBoard.instantiateViewControllerWithIdentifier("TweetsViewController") as TweetsViewController
+        timelineVC.isMentions = false
+        profileVC = self.storyBoard.instantiateViewControllerWithIdentifier("ProfileViewController") as ProfileViewController
+        mentionsVC = self.storyBoard.instantiateViewControllerWithIdentifier("TweetsViewController") as TweetsViewController
+        timelineVC.isMentions = true
         
         self.timelineViewXConstraint.constant = 0
         
@@ -103,15 +105,12 @@ class TimelineViewController: UIViewController {
         if sender == profileNameButton {
             println("profile pressed!")
             self.activeViewController = profileVC
-            println("USER:\(user.name)")
         } else if sender == timelineButton {
             println("timeline pressed!")
             self.activeViewController = timelineVC
-            println("USER:\(user.name)")
         } else if sender == mentionsButton {
             println("mentions pressed!")
             self.activeViewController = mentionsVC
-            println("USER:\(user.name)")
         } else {
             println("unknown button pressed!")
         }

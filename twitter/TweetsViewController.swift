@@ -16,6 +16,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var NewTweetButton: UIBarButtonItem!
     @IBOutlet weak var TweetsHomeLabel: UINavigationItem!
 
+    var isMentions: Bool = false
     
     var tweets: [Tweet]?
     
@@ -35,13 +36,34 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
       
         self.navigationController?.navigationBar.barTintColor = color
         
-        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
-            if tweets != nil {
-                self.tweets = tweets
+        if self.isMentions == true {
+
+            TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
+                if tweets != nil {
+                    self.tweets = tweets
+                }
+                
+                self.tableView.reloadData()
             }
-            
-            self.tableView.reloadData()
+
+        } else {
+
+            TwitterClient.sharedInstance.mentionsTimelineWithCompletion(nil) { (tweets, error) -> () in
+                if tweets != nil {
+                    self.tweets = tweets
+                }
+                
+                self.tableView.reloadData()
+            }
+
         }
+//        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
+//            if tweets != nil {
+//                self.tweets = tweets
+//            }
+//            
+//            self.tableView.reloadData()
+//        }
         
         // Do any additional setup after loading the view.
     
