@@ -13,6 +13,7 @@ import UIKit
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         var color: UIColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
@@ -23,6 +24,7 @@ class ViewController: UIViewController {
     }
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -34,9 +36,11 @@ class ViewController: UIViewController {
             (user: User?, error: NSError?) in
             
             if user != nil {
+                
                 // prepare for seque
                 self.performSegueWithIdentifier("loginSegue", sender: self)
             } else {
+                
                 // handle login error
             }
         }

@@ -93,6 +93,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
         // NAJ: In Use, commented out in view controller
         TwitterClient.sharedInstance.requestSerializer.removeAccessToken()
         TwitterClient.sharedInstance.fetchRequestTokenWithPath("oauth/request_token", method: "GET", callbackURL: NSURL(string: "twitterswiftclient://oauth"), scope: nil, success: { (requestToken: BDBOAuthToken!) -> Void in
+            
             println("Got the request token")
             
             var authURL = NSURL(string: "https://api.twitter.com/oauth/authorize?oauth_token=\(requestToken.token)")
@@ -132,7 +133,7 @@ class TwitterClient: BDBOAuth1RequestOperationManager {
             
             TwitterClient.sharedInstance.GET("1.1/statuses/home_timeline.json", parameters: nil, success: { (operation: AFHTTPRequestOperation!, response: AnyObject!) -> Void in
                 
-                println("home timeline: \(response)")
+                //println("home timeline: \(response)")
                 var tweets = Tweet.tweetsWithArray(response as [NSDictionary])
                 
                 for tweet in tweets {

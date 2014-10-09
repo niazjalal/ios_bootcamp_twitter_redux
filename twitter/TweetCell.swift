@@ -68,6 +68,7 @@ class TweetCell: UITableViewCell, UIGestureRecognizerDelegate {
     func onTapUserImage(sender: UITapGestureRecognizer) {
         
         println("onTapUserImage() called")
+        
         self.segueCallback!(tweet: self.tweet)
     }
 }

@@ -11,17 +11,11 @@ import UIKit
 class TimelineViewController: UIViewController {
 
     @IBOutlet weak var timelineViewXConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var contentView: UIView!
-    
     @IBOutlet weak var timelineButton: UIButton!
-    
     @IBOutlet weak var mentionsButton: UIButton!
-
     @IBOutlet weak var profilePosterView: UIImageView!
-    
     @IBOutlet weak var profileNameButton: UIButton!
-    
     @IBOutlet weak var profileScreennameLabel: UILabel!
     
     var user: User!
@@ -39,16 +33,22 @@ class TimelineViewController: UIViewController {
             if let oldVC = oldViewControllerOrNil {
                 
                 oldVC.willMoveToParentViewController(nil)
+                
                 oldVC.view.removeFromSuperview()
+                
                 oldVC.removeFromParentViewController()
             }
             
             if let newVC = activeViewController {
                 
                 self.addChildViewController(newVC)
+                
                 newVC.view.autoresizingMask = .FlexibleWidth | .FlexibleHeight
+                
                 newVC.view.frame = self.contentView.bounds
+                
                 self.contentView.addSubview(newVC.view)
+                
                 newVC.didMoveToParentViewController(self)
             }
         }
@@ -61,17 +61,24 @@ class TimelineViewController: UIViewController {
         var color: UIColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
         
         self.user = User.currentUser
-        println("USER: \(self.user)")
+//        println("USER: \(self.user)")
 
         self.profileNameButton.setTitle("\(user.name!)", forState: UIControlState.Normal)
+        
         self.profileScreennameLabel.text = "@\(user.screenname!)"
+        
         self.profileScreennameLabel.textColor = color
+        
         self.profilePosterView.setImageWithURL(user.profileImageURL!)
         
         timelineVC = self.storyBoard.instantiateViewControllerWithIdentifier("TweetsViewController") as TweetsViewController
+        
         timelineVC.isMentions = false
+        
         profileVC = self.storyBoard.instantiateViewControllerWithIdentifier("ProfileViewController") as ProfileViewController
+        
         mentionsVC = self.storyBoard.instantiateViewControllerWithIdentifier("TweetsViewController") as TweetsViewController
+        
         timelineVC.isMentions = true
         
         self.timelineViewXConstraint.constant = 0
@@ -82,7 +89,9 @@ class TimelineViewController: UIViewController {
     }
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
     
@@ -93,6 +102,7 @@ class TimelineViewController: UIViewController {
             UIView.animateWithDuration(0.35, animations: {
                 
                 self.timelineViewXConstraint.constant = -160
+                
                 self.view.layoutIfNeeded()
             })
         }
@@ -101,21 +111,29 @@ class TimelineViewController: UIViewController {
     @IBAction func menuButtonPressed(sender: UIButton) {
 
         if sender == profileNameButton {
+            
             println("profile pressed!")
+            
             self.activeViewController = profileVC
         } else if sender == timelineButton {
+            
             println("timeline pressed!")
+            
             self.activeViewController = timelineVC
         } else if sender == mentionsButton {
+            
             println("mentions pressed!")
+            
             self.activeViewController = mentionsVC
         } else {
+            
             println("unknown button pressed!")
         }
         
         UIView.animateWithDuration(0.35, animations: {
             
             self.timelineViewXConstraint.constant = 0
+            
             self.view.layoutIfNeeded()
         })
     }
@@ -134,5 +152,4 @@ class TimelineViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

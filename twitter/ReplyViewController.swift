@@ -18,6 +18,7 @@ class ReplyViewController: UIViewController {
     var tweet: Tweet!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         var color: UIColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
@@ -36,7 +37,9 @@ class ReplyViewController: UIViewController {
     }
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
     
@@ -70,5 +73,4 @@ class ReplyViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

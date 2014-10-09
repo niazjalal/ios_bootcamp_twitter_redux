@@ -22,6 +22,7 @@ class TweetViewController: UIViewController {
     var tweet: Tweet?
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         var color: UIColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
@@ -46,21 +47,25 @@ class TweetViewController: UIViewController {
     }
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
     
     @IBAction func onReplyButton(sender: AnyObject) {
         
        self.performSegueWithIdentifier("replyTweetSegue", sender: self)
-
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if segue.identifier == "replyTweetSegue" {
+            
             var navController = segue.destinationViewController as UINavigationController
+            
             var tweetReplyController = navController.viewControllers[0] as ReplyViewController
+            
             tweetReplyController.tweet = tweet
         }
     }

@@ -36,7 +36,6 @@ class User: NSObject {
         
         name = dictionary["name"] as? String
         screenname = dictionary["screen_name"] as? String
-        //println("SCREEN NAME: \(screenname)")
         backgroundImageAvailable = dictionary["profile_use_background_image"] as? Bool
         if (backgroundImageAvailable == true) {
             backgroundImageURL = NSURL(string: dictionary["profile_background_image_url"] as String)
@@ -48,7 +47,6 @@ class User: NSObject {
         }
         bannerColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
         profileImageURL = NSURL(string: dictionary["profile_image_url"] as String)
-        //println("IMAGE URL FROM USER: \(profileImageURL)")
         tagline = dictionary["description"] as? String
         tweetCount = dictionary["statuses_count"] as? Int
         id = dictionary["id"] as? Int

@@ -57,13 +57,6 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             }
 
         }
-//        TwitterClient.sharedInstance.homeTimelineWithParams(nil) { (tweets, error) -> () in
-//            if tweets != nil {
-//                self.tweets = tweets
-//            }
-//            
-//            self.tableView.reloadData()
-//        }
         
         // Do any additional setup after loading the view.
     
@@ -72,19 +65,22 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     }
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
      
-        println("ROWS: \(self.tweets?.count)")
+        //println("ROWS: \(self.tweets?.count)")
+        
         return self.tweets?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        println("I'm at row: \(indexPath.row)")
+        //println("I'm at row: \(indexPath.row)")
         
         var cell = tableView.dequeueReusableCellWithIdentifier("TweetCell") as? TweetCell
         
@@ -99,9 +95,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     
     func cellCallback(tweet: Tweet) -> Void {
         
-        println("Calling segue")
         self.performSegueWithIdentifier("loadProfileSegue", sender: tweet)
-        println("Returned from segue call")
     }
 
     @IBAction func onLogout(sender: AnyObject) {
@@ -117,7 +111,9 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
     func onRefresh(sender: AnyObject) {
         
         var refresh = sender as UIRefreshControl
+    
         refresh.endRefreshing()
+        
         tableView.reloadData()
     }
     
@@ -128,6 +124,7 @@ class TweetsViewController: UIViewController, UITableViewDataSource, UITableView
             var tweetViewController = segue.destinationViewController as TweetViewController
             
             let tweetPath = self.tableView.indexPathForSelectedRow() as NSIndexPath!
+            
             let row = tweetPath.row
             
             var tweet = self.tweets![row]

@@ -21,6 +21,7 @@ class ProfileViewController: UIViewController {
     var user: User!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
               
         var color: UIColor = UIColor(red:CGFloat(64/255.0), green: CGFloat(153/255.0), blue: CGFloat(1), alpha: CGFloat(1))
@@ -31,8 +32,12 @@ class ProfileViewController: UIViewController {
             user = User.currentUser
         }
         
-        self.bannerPosterView.setImageWithURL(user.bannerImageURL!)
-//        println("\(user.bannerImageURL!)")
+        if user.bannerImageURL != nil {
+            
+            self.bannerPosterView.setImageWithURL(user.bannerImageURL!)
+            
+//            println("\(user.bannerImageURL!)")
+        }
         self.thumbPosterView.setImageWithURL(user.profileImageURL!)
         self.profileNameLabel.text = "\(user.name!)"
         self.profileScreennameLabel.text = "@\(user.screenname!)"
@@ -48,7 +53,9 @@ class ProfileViewController: UIViewController {
     }
 
     override func didReceiveMemoryWarning() {
+        
         super.didReceiveMemoryWarning()
+        
         // Dispose of any resources that can be recreated.
     }
     
@@ -62,5 +69,4 @@ class ProfileViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
